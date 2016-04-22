@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap-3.3.6-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+
+</head>
+<body ng-app="">
+    <select id="selectVideos" ng-model="sVideos" ng-init="sVideos='a.mp4'">
+        <option>a.mp4</option>
+        <option>b.mp4</option>
+        <option>d.mp4</option>
+    </select>
+    <input type="range" min="200" max="300" id="w1" ng-model="w1" />
+    <input type="range" min="200" max="300" id="h1" ng-model="h1" />
+    <br />
+    <hr />
+    <div>{{sVideos}}</div>
+    <video id="v2" src="{{sVideos}}" autoplay height="{{w1}}" width="{{h1}}"></video>
+</body>
+</html>

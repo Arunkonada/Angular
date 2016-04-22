@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap-3.3.6-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+</head>
+<body ng-app="angular1" ng-controller="angController as angular" ng-init="Months=12;Years=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];">
+    <br />
+    <h3 style="font-size: xx-large;margin-left: 261px;">Loan Calculator</h3>
+    <hr />
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="amountWant" class="form-control-static">Amount :</label>
+            <input type="number" class="form-control" id="amountWant" ng-model="amountWant" />
+        </div>
+        <div class="form-group">
+            <label for="tenureInYears">Tenure In Years :</label>
+            <select class="form-control" id="tenureInYears" ng-model="tenureInYears">
+                <option ng-repeat="y in Years">{{y}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="rateOfInterest">Rate Of Interest:</label>
+            <input type="number" class="form-control" id="rateOfInterest" ng-model="rateOfInterest" />
+        </div>
+        <div style="width: 22%;margin-left: 227px;margin-top: 26px;">
+            <p class="bg-primary">Monthly-Installment : {{(amountWant * (1 + ((tenureInYears / 100) * (rateOfInterest * Months)))) / (Months * tenureInYears) | currency}}</p>
+            <p class="bg-primary">Start Date : {{angular.startDate}}</p>
+            <p class="bg-primary">End Date : {{angular.endDate(tenureInYears)}}</p>
+            <p class="bg-primary">Actual Amount : {{amountWant | currency}}</p>
+            <p class="bg-primary">Total Amount : {{(amountWant * (1 + ((tenureInYears / 100) * (rateOfInterest * Months)))) | currency}}</p>
+        </div>
+    </form>
+    <script src="Scripts/angular.min.js"></script>
+    <script type="text/javascript">
+        angular.module('angular1', []).controller('angController', function () {
+            var d = new Date(Date.now());
+            this.startDate = d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear();
+            this.endDate = function (addValue) {
+                var added = d.getFullYear() + Number(addValue);
+                return d.getDate() + '/' + d.getMonth() + '/' + added;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
