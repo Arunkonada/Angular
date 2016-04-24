@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
@@ -7,145 +7,114 @@
 </head>
 <body ng-app="dialPad" ng-controller="dialController" >
     <br />
-    <h2 style="margin-left: 472px;">Message Pad</h2>
+    <h2 style="margin-left: 400px;">Old Cell Phones Message Pad</h2>
     <br />
-    <input  id="msg" value="{{dial}}" class="form-control" />
+    <input  id="msg" readonly value="{{dial}}" class="form-control" />
     <br />
     <br />
     <br />
     <div class="form-inline">
         <div style="margin-left: 447px;margin-top: -89px;" class="btn-group" role="group" aria-label="...">
             <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default" ng-click="one()">1(.,?)</button>
+                <button type="button" class="btn btn-default" ng-click="mainLogic('one')">1(.,?)</button>
             </div>
             <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default" ng-click="two()">2(ABC)</button>
+                <button type="button" class="btn btn-default" ng-click="mainLogic('two')">2(ABC)</button>
             </div>
             <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default" ng-click="three()">3(DEF)</button>
+                <button type="button" class="btn btn-default" ng-click="mainLogic('three')">3(DEF)</button>
             </div>
         </div>
         <br />
         <div style="margin-left: 442px;margin-top: -34px;" class="btn-group" role="group" aria-label="...">
             <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default" ng-click="four()">4(GHI)</button>
+                <button type="button" class="btn btn-default" ng-click="mainLogic('four')">4(GHI)</button>
             </div>
             <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default">5(JKL)</button>
+                <button type="button" class="btn btn-default" ng-click="mainLogic('five')">5(JKL)</button>
             </div>
             <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default">6(MNO)</button>
+                <button type="button" class="btn btn-default" ng-click="mainLogic('six')">6(MNO)</button>
             </div>
         </div>
         <br />
         <div style="margin-left: 427px;margin-top: -3px;" class="btn-group" role="group" aria-label="...">
             <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default">7(PQRS)</button>
+                <button type="button" class="btn btn-default" ng-click="mainLogic('seven')">7(PQRS)</button>
             </div>
             <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default">8(TUV)</button>
+                <button type="button" class="btn btn-default" ng-click="mainLogic('eigth')">8(TUV)</button>
             </div>
             <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default">9(WXYZ)</button>
+                <button type="button" class="btn btn-default" ng-click="mainLogic('nine')">9(WXYZ)</button>
             </div>
         </div>
-    </div>
+        <div style="margin-left: 470px;margin-top: 0px;" class="btn-group" role="group" aria-label="...">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="space()">Space</button>
+            </div>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="backSpace()">Back-Space</button>
+            </div>
+        </div>
+       </div>
     <script src="Scripts/angular.min.js"></script>
     <script>
         angular.module('dialPad', []).controller('dialController', function ($scope) {
-           
-            var compareTime = 0, i = 0, j = 0,
-            two = ['A', 'B', 'C', 1], compareTimei = 0, twoi, twoj,
-            three = ['D', 'E', 'F', 2], compareTimethree = 0, threei, threej,
-            four = ['G', 'H', 'I', 3], compareTimefour = 0, fouri, fourj,
-            one = ['.', '?', '1'] ,mesaage="";
+            var mesaage = "", timeSequence = 2000,
+            dialObject = {
+                one: { array: ['.', '?', 1], compareTime: 0, i: undefined, j: undefined },
+                two: { array: ['A', 'B', 'C',2], compareTime: 0, i: undefined, j: undefined },
+                three: { array: ['D', 'E', 'F', 3], compareTime: 0, i: undefined, j: undefined },
+                five: { array: ['J', 'K', 'L', 5], compareTime: 0, i: undefined, j: undefined },
+                four: { array: ['G', 'H', 'I', 4], compareTime: 0, i: undefined, j: undefined },
+                six: { array: ['M', 'N', 'O', 6], compareTime: 0, i: undefined, j: undefined },
+                seven: { array: ['P', 'Q', 'R', 'S', 7], compareTime: 0, i: undefined, j: undefined },
+                eigth: { array: ['T', 'U', 'V', 8], compareTime: 0, i: undefined, j: undefined },
+                nine: { array: ['W', 'X', 'Y', 'Z', 9], compareTime: 0, i: undefined, j: undefined }
+            };
             $scope.dial = mesaage;
-            $scope.one = function () {
-                var t0 = performance.now();
-                if (i == 0 || parseInt(t0.toString().split("."), 10) <= (compareTime + 3000)) {
-                    compareTime = parseInt(t0.toString().split("."), 10);
-                    j++;
-                    if (j != 1) {
-                        if (i < one.length-1) {
-                            one[i++];
-                        }
-                        else {
-                            i = 0;
-                        }
-                    }
-                    mesaage = mesaage + one[i];
-                }
-                else
-                {
-                    compareTime = 0; i = 0; j = 0;
-                    mesaage = mesaage + one[i];
-                }
+            $scope.space = function () {
+                mesaage = mesaage + " ";
                 $scope.dial = mesaage;
-            }
-            $scope.two = function () {
-                var t0 = performance.now();
-                if (twoi == 0 || parseInt(t0.toString().split("."), 10) <= (compareTimei + 3000)) {
-                    compareTimei = parseInt(t0.toString().split("."), 10);
-                    twoj++;
-                    if (twoj != 1) {
-                        if (twoi < two.length - 1) {
-                            two[twoi++];
-                        }
-                        else {
-                            twoi = 0;
-                        }
+            };
+            $scope.backSpace = function () {
+                var newMessage = mesaage.substring(0, mesaage.length - 1);
+                mesaage = newMessage;
+                $scope.dial = newMessage;
+            };
+            $scope.mainLogic = function (arrayType) {
+                 var obj = { 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eigth', 9: 'nine' };
+                    for (var k = 1, l = 10; k < l; k++) {
+                        if (obj[k] != arrayType)
+                        {
+                            dialObject[obj[k]]['compareTime'] = 0;
+                            dialObject[obj[k]]['i'] = undefined;
+                        } 
                     }
-                    mesaage = mesaage + two[twoi];
-                }
-                else {
-                    compareTimei = 0; twoi = 0; twoj = 0;
-                    mesaage = mesaage + two[twoi];
-                }
-                $scope.dial = mesaage;
-            }
-            $scope.three = function () {
-                var t0 = performance.now();
-                if (threei == 0 || parseInt(t0.toString().split("."), 10) <= (compareTimethree + 3000)) {
-                    compareTimethree = parseInt(t0.toString().split("."), 10);
-                    threej++;
-                    if (threej != 1) {
-                        if (threei < three.length - 1) {
-                            three[threei++];
+                    var t2 = performance.now();
+                    if (dialObject[arrayType]['i'] == 0 || parseInt(t2.toString().split("."), 10) <= (dialObject[arrayType]['compareTime'] + timeSequence)) {
+                        dialObject[arrayType]['compareTime'] = parseInt(t2.toString().split("."), 10);
+                        dialObject[arrayType]['j']++;
+                        if (dialObject[arrayType]['j'] != 0) {
+                            if (dialObject[arrayType]['i'] < dialObject[arrayType]['array'].length - 1) {
+                                dialObject[arrayType]['array'][dialObject[arrayType]['i']++];
+                            }
+                            else {
+                                dialObject[arrayType]['i'] = 0;
+                            }
                         }
-                        else {
-                            threei = 0;
+                        if (parseInt(t2.toString().split("."), 10) <= (dialObject[arrayType]['compareTime'] + timeSequence)) {
+                            mesaage = mesaage.substring(0, mesaage.length - 1);
                         }
+                        mesaage = mesaage + dialObject[arrayType]['array'][dialObject[arrayType]['i']];
                     }
-                    mesaage = mesaage + three[threei];
-                }
-                else {
-                    compareTimethree = 0; threei = 0; threej = 0;
-                    mesaage = mesaage + three[threei];
-                }
-                $scope.dial = mesaage;
-            }
-            $scope.four = function () {
-                var t0 = performance.now();
-                if (fouri == 0 || parseInt(t0.toString().split("."), 10) <= (compareTimefour + 3000)) {
-                    compareTimefour = parseInt(t0.toString().split("."), 10);
-                    fourj++;
-                    if (fourj != 1) {
-                        if (fouri < four.length - 1) {
-                            four[fouri++];
-                        }
-                        else {
-                            fouri = 0;
-                        }
+                    else {
+                        dialObject[arrayType]['compareTime'] = 0; dialObject[arrayType]['i'] = 0; dialObject[arrayType]['j'] = 0;
+                        mesaage = mesaage + dialObject[arrayType]['array'][dialObject[arrayType]['i']];
                     }
-                    mesaage = parseInt(t0.toString().split("."), 10) <= (compareTimefour + 3000) ? mesaage + four[fouri] : mesaage.substring(0, mesaage.length - 1) ;
-                    //mesaage = mesaage + four[fouri];
-                }
-                else {
-                    compareTimefour = 0; fouri = 0; fourj = 0;
-                    mesaage = mesaage + four[fouri];
-                }
-                $scope.dial = mesaage;
-            }
+                    $scope.dial = mesaage;
+            };
         });
     </script>
 </body>
