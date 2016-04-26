@@ -57,17 +57,35 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="CrudOperationUsingStaticData.html" />
+    <Content Include="CrudOperationUsingStaticData\Scripts\1.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="OldMessagePad.html" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="packages.config" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap-theme.css.map" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap-theme.min.css.map" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap.css.map" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap.min.css.map" />
-    <Content Include="bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -76,23 +94,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap-theme.css" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap-theme.min.css" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap.css" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap.min.css" />
-    <Content Include="bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="bootstrap-3.3.6-dist\js\bootstrap.js" />
-    <Content Include="bootstrap-3.3.6-dist\js\bootstrap.min.js" />
-    <Content Include="bootstrap-3.3.6-dist\js\npm.js" />
     <Content Include="HtmlPage1.html" />
     <Content Include="a.mp4" />
     <Content Include="b.mp4" />
     <Content Include="c.mp4" />
     <Content Include="d.mp4" />
     <Content Include="RateOfInterest.html" />
-    <Content Include="Scripts\angular-mocks.js" />
-    <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
     <Content Include="Web.config" />
     <Content Include="Wildlife.wmv" />
   </ItemGroup>
