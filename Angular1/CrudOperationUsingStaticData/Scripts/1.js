@@ -36,22 +36,28 @@ angular.module('crudModule', [])
                 $('#' + id).hide();
                 $('#Edit_' + id).removeClass('ng-hide');
             };
-            $scope.delete = function(id) {
+            $scope.delete = function (id) {
+                var i;
+                for (i in data) {
+                    if (data[i].Id === id) {
+                        data.splice(i, 1);
+                    }
+                };
                 $('#tbody_'+id).remove();
             };
             $scope.cancel = function(id) {
                 $('#' + id).show();
                 $('#Edit_' + id).addClass('ng-hide');
             };
-            $scope.save = function (id) {
+            $scope.save = function (id,name,position,office,age,startDate,salary) {
                 for (var i=0;i<data.length-1;i++) {
                     if (data[i].Id === id) {
-                        data[i].Name = $('#txtEditName_' + id).val();
-                        data[i].Position = $('#txtEditPosition_' + id).val();
-                        data[i].Office = $('#txtEditOffice_' + id).val();
-                        data[i].Age = Number($('#txtEditAge_' + id).val());
-                        data[i].StartDate = $('#txtEditStartDate_' + id).val();
-                        data[i].Salary = Number($('#txtEditSalary_' + id).val());
+                        data[i].Name = name;
+                        data[i].Position = position;
+                        data[i].Office = office;
+                        data[i].Age = Number(age);
+                        data[i].StartDate = startDate;
+                        data[i].Salary = Number(salary);
                     }
                 }
                 $scope.cancel(id);

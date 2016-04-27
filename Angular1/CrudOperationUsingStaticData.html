@@ -76,7 +76,7 @@
 
             <tbody id="tbody_{{employee.Id}}" ng-repeat="employee in EmployeeData">
                 <tr id="{{employee.Id}}" ng-show="true">
-                    <td ng-model="entity.name">{{employee.Name}}</td>
+                    <td>{{employee.Name}}</td>
                     <td>{{employee.Position}}</td>
                     <td>{{employee.Office}}</td>
                     <td>{{employee.Age}}</td>
@@ -95,7 +95,7 @@
                     <td><input type="datetime" id="txtEditStartDate_{{employee.Id}}" class="form-control" ng-model="employee.StartDate" /></td>
                     <td><input type="number" id="txtEditSalary_{{employee.Id}}" class="form-control" ng-model="employee.Salary" /></td>
                     <td>
-                        <button class="btn btn-info btn-sm" ng-click="save(employee.Id)"><span class="glyphicon glyphicon-ok"></span></button>
+                        <button class="btn btn-info btn-sm" ng-click="save(employee.Id,employee.Name,employee.Position,employee.Office,employee.Age,employee.StartDate,employee.Salary)"><span class="glyphicon glyphicon-ok"></span></button>
                         <button class="btn btn-danger btn-sm" ng-click="cancel(employee.Id)"><span class="glyphicon glyphicon-remove"></span></button>
                     </td>
                 </tr>
