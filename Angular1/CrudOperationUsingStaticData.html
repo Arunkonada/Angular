@@ -11,17 +11,16 @@
 </head>
 <body ng-app="crudModule" ng-controller="crudController">
 <br/>
-<br/>
-<br/>
-<br/>
-<button style="margin-left: 1286px;"  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    <h2 style="font-weight: 700;margin-left: 388px;">Crud Operation Using Static Data</h2>
+    <br />
+    <button style="margin-left: 1190px;width: 155px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
         Add
     </button>
-<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel1">Add Employee Data</h4>
@@ -29,7 +28,7 @@
                 <div class="modal-body">
                     <div class="form-inline">
                         <div class="form-group">
-                            <input type="text" id="txtName" placeholder="Name" class="form-control" ng-model="Name"/>
+                            <input type="text" id="txtName" placeholder="Name" class="form-control" ng-model="Name" />
                         </div>
                         <br />
                         <div class="form-group">
@@ -56,42 +55,53 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="Add()">Save changes</button>
+                    <button type="button" class="btn btn-info" ng-click="Add()">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
-<div>
-    <table class="table table-responsive table-hover table-striped table-bordered">
-        <thead class="">
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>StartDate</th>
-            <th>Salary</th>
-            <th>Operations</th>
-        </tr>
-        </thead>
+    <div>
+        <table class="table table-responsive table-hover table-striped table-bordered">
+            <thead class="">
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Age</th>
+                    <th>StartDate</th>
+                    <th>Salary</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
 
-        <tbody ng-repeat="employee in EmployeeData">
-        <tr ng-show="rowHiding()">
-            <td>{{employee.Name}}</td>
-            <td>{{employee.Position}}</td>
-            <td>{{employee.Office}}</td>
-            <td>{{employee.Age}}</td>
-            <td>{{employee.StartDate}}</td>
-            <td>{{employee.Salary | currency}}</td>
-            <td>
-                <button class="btn btn-info btn-sm" ng-click="edit()"><span class="glyphicon glyphicon-pencil"></span>Edit</button>
-                <button class="btn btn-info btn-sm" ng-click="delete()"><span class="glyphicon glyphicon-remove"></span>Delete</button>
-            </td>
-        </tr>
-        <tr ng-show=""></tr>
-        </tbody>
-    </table>
-</div>
+            <tbody id="tbody_{{employee.Id}}" ng-repeat="employee in EmployeeData">
+                <tr id="{{employee.Id}}" ng-show="true">
+                    <td ng-model="entity.name">{{employee.Name}}</td>
+                    <td>{{employee.Position}}</td>
+                    <td>{{employee.Office}}</td>
+                    <td>{{employee.Age}}</td>
+                    <td>{{employee.StartDate}}</td>
+                    <td>{{employee.Salary | currency}}</td>
+                    <td>
+                        <button class="btn btn-info btn-sm" ng-click="edit(employee.Id)"><span class="glyphicon glyphicon-edit"></span></button>
+                        <button class="btn btn-danger btn-sm" ng-click="delete(employee.Id)"><span class="glyphicon glyphicon-remove"></span></button>
+                    </td>
+                </tr>
+                <tr id="Edit_{{employee.Id}}" ng-show="false">
+                    <td><input type="text" id="txtEditName_{{employee.Id}}" class="form-control" ng-model="employee.Name" /></td>
+                    <td><input type="text" id="txtEditPosition_{{employee.Id}}" class="form-control" ng-model="employee.Position" /></td>
+                    <td><input type="text" id="txtEditOffice_{{employee.Id}}" class="form-control" ng-model="employee.Office" /></td>
+                    <td><input type="number" id="txtEditAge_{{employee.Id}}" class="form-control" ng-model="employee.Age" /></td>
+                    <td><input type="datetime" id="txtEditStartDate_{{employee.Id}}" class="form-control" ng-model="employee.StartDate" /></td>
+                    <td><input type="number" id="txtEditSalary_{{employee.Id}}" class="form-control" ng-model="employee.Salary" /></td>
+                    <td>
+                        <button class="btn btn-info btn-sm" ng-click="save(employee.Id)"><span class="glyphicon glyphicon-ok"></span></button>
+                        <button class="btn btn-danger btn-sm" ng-click="cancel(employee.Id)"><span class="glyphicon glyphicon-remove"></span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>
