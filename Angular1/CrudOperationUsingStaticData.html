@@ -75,7 +75,7 @@
             </thead>
 
             <tbody id="tbody_{{employee.Id}}" ng-repeat="employee in EmployeeData">
-                <tr id="{{employee.Id}}" ng-show="true">
+                <tr id="{{employee.Id}}" ng-show="employee.NormalEdit">
                     <td>{{employee.Name}}</td>
                     <td>{{employee.Position}}</td>
                     <td>{{employee.Office}}</td>
@@ -87,7 +87,7 @@
                         <button class="btn btn-danger btn-sm" ng-click="delete(employee.Id)"><span class="glyphicon glyphicon-remove"></span></button>
                     </td>
                 </tr>
-                <tr id="Edit_{{employee.Id}}" ng-show="false">
+                <tr id="Edit_{{employee.Id}}" ng-show="employee.InlineEdit">
                     <td><input type="text" id="txtEditName_{{employee.Id}}" class="form-control" ng-model="employee.Name" /></td>
                     <td><input type="text" id="txtEditPosition_{{employee.Id}}" class="form-control" ng-model="employee.Position" /></td>
                     <td><input type="text" id="txtEditOffice_{{employee.Id}}" class="form-control" ng-model="employee.Office" /></td>
