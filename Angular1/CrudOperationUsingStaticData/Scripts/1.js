@@ -46,15 +46,12 @@ angular.module('crudModule', [])
                     NormalEdit: true,
                     InlineEdit: false
                 });
-                //$scope.EmployeeData = data;
-                //$scope.Name = '';
-                //$scope.Position = '';
-                //$scope.Office = '';
-                //$scope.Age = '';
-                //$scope.StartDate = '';
-                //$scope.Salary = '';
-                $('#myModal').hide();
-                $('.modal-backdrop').removeClass('modal-backdrop');
+                $scope.Name = '';
+                $scope.Position = '';
+                $scope.Office = '';
+                $scope.Age = '';
+                $scope.StartDate = '';
+                $scope.Salary = '';
             };
             $scope.edit = function (id) {
                 var i;
