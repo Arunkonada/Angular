@@ -2,6 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+        .req {
+            color: red;
+        }
+    </style>
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet"/>
     <script src="Scripts/jquery-1.9.1.js"></script>
@@ -25,42 +33,74 @@
                     </button>
                     <h4 class="modal-title" id="myModalLabel1">Add Employee Data</h4>
                 </div>
-                <div class="modal-body">
-                    <div class="form-inline">
+                <form name="addForm" novalidate>
+                    <div class="modal-body">
+
                         <div class="form-group">
-                            <input type="text" id="txtName" placeholder="Name" class="form-control" ng-model="Name" />
+                            <label for="txtName">Name </label><span class="req">*</span>
+                            <input type="text" name="userName" id="txtName" ng-maxlength="20" required="" placeholder="Name" class="form-control" ng-model="Name" />
+                            <div class="error" ng-show="addForm.$submitted || addForm.userName.$touched">
+                                <div ng-show="addForm.userName.$error.required">Field is required!</div>
+                                <div ng-show="addForm.userName.$error.maxlength">Maximum length is 20 charaters</div>
+                            </div>
                         </div>
-                        <br />
                         <div class="form-group">
-                            <input type="text" id="txtPosition" placeholder="Position" class="form-control" ng-model="Position" />
+                            <label for="txtPosition">Position </label><span class="req">*</span>
+                            <input type="text" id="txtPosition" name="Position" ng-maxlength="30" required="" placeholder="Position" class="form-control" ng-model="Position"  />
+                            <div class="error" ng-show="addForm.$submitted || addForm.Position.$touched">
+                                <div ng-show="addForm.Position.$error.required">Field is required!</div>
+                                <div ng-show="addForm.Position.$error.maxlength">Maximum length is 30 charaters!</div>
+                            </div>
                         </div>
-                        <br />
                         <div class="form-group">
-                            <input type="text" id="txtOffice" placeholder="Office" class="form-control" ng-model="Office" />
+                            <label for="txtOffice">Office </label><span class="req">*</span>
+                            <input type="text" id="txtOffice" name="Office" required ng-maxlength="20" placeholder="Office" class="form-control" ng-model="Office"  />
+                            <div class="error" ng-show="addForm.$submitted || addForm.Office.$touched">
+                                <div ng-show="addForm.Office.$error.required">Field is required!</div>
+                            </div>
                         </div>
-                        <br />
                         <div class="form-group">
-                            <input type="number" id="txtAge" placeholder="Age" class="form-control" ng-model="Age" />
+                            <label for="txtAge">Age </label><span class="req">*</span>
+                            <input type="number" id="txtAge" name="Age" required placeholder="Age" class="form-control" ng-model="Age"  />
+                            <div class="error" ng-show="addForm.$submitted || addForm.Age.$touched">
+                                <div ng-show="addForm.Age.$error.required">Field is required!</div>
+                            </div>
                         </div>
-                        <br />
                         <div class="form-group">
-                            <input type="datetime" id="txtDateTime" placeholder="Start Date" class="form-control" ng-model="StartDate" />
+                            <label for="txtDateTime">Date </label><span class="req">*</span>
+                            <input type="date" id="txtDateTime" name="StartDate" required placeholder="Start Date" class="form-control" ng-model="StartDate"  />
+                            <div class="error" ng-show="addForm.$submitted || addForm.StartDate.$touched">
+                                <div ng-show="addForm.StartDate.$error.required">Field is required!</div>
+                            </div>
                         </div>
-                        <br />
-                        <div class="form-group">
-                            <input type="number" id="txtSalary" placeholder="Salary" class="form-control" ng-model="Salary" />
+                     <div class="form-group">
+                            <label for="txtSalary">Salary </label><span class="req">*</span>
+                            <input type="number" id="txtSalary" name="Salary" required placeholder="Salary" class="form-control" ng-model="Salary" ng-change="submitted=false"/>
+                            <div class="error" ng-show="addForm.$submitted || addForm.Salary.$touched">
+                                <div ng-show="addForm.Salary.$error.required">Field is required!</div>
+                            </div>
                         </div>
+                     <div class="form-group">
+                        <input type="checkbox" ng-model="addForm.agree" name="userAgree" required="" />
+                        I agree:
+                        <input ng-show="addForm.agree" type="text" ng-model="addForm.agreeSign" required="" />
                         <br />
+                        <div class="error" ng-show="addForm.$submitted || addForm.agreeSign.$touched">
+                            <div ng-show="!addForm.agree || !addForm.agreeSign">Please agree and sign.</div>
+                        </div>
+
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-info" ng-click="Add()">Save changes</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" ng-click="reset(form)" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-info" ng-click="Add()" value="Save changes"/>
+                    </div>
+                  </div>
+                </form>
             </div>
         </div>
     </div>
-    <div>
+<div>
+    <form name="tableForm">
         <table class="table table-responsive table-hover table-striped table-bordered">
             <thead class="">
                 <tr>
@@ -73,14 +113,13 @@
                     <th>Operations</th>
                 </tr>
             </thead>
-
             <tbody id="tbody_{{employee.Id}}" ng-repeat="employee in EmployeeData">
                 <tr id="{{employee.Id}}" ng-show="employee.NormalEdit">
                     <td>{{employee.Name}}</td>
                     <td>{{employee.Position}}</td>
                     <td>{{employee.Office}}</td>
                     <td>{{employee.Age}}</td>
-                    <td>{{employee.StartDate}}</td>
+                    <td>{{employee.StartDate |  date:'MM-dd-yyyy'}}</td>
                     <td>{{employee.Salary | currency}}</td>
                     <td>
                         <button class="btn btn-info btn-sm" ng-click="edit(employee.Id)"><span class="glyphicon glyphicon-edit"></span></button>
@@ -88,20 +127,55 @@
                     </td>
                 </tr>
                 <tr id="Edit_{{employee.Id}}" ng-show="employee.InlineEdit">
-                    <td><input type="text" id="txtEditName_{{employee.Id}}" class="form-control" ng-model="employee.Name" /></td>
-                    <td><input type="text" id="txtEditPosition_{{employee.Id}}" class="form-control" ng-model="employee.Position" /></td>
-                    <td><input type="text" id="txtEditOffice_{{employee.Id}}" class="form-control" ng-model="employee.Office" /></td>
-                    <td><input type="number" id="txtEditAge_{{employee.Id}}" class="form-control" ng-model="employee.Age" /></td>
-                    <td><input type="datetime" id="txtEditStartDate_{{employee.Id}}" class="form-control" ng-model="employee.StartDate" /></td>
-                    <td><input type="number" id="txtEditSalary_{{employee.Id}}" class="form-control" ng-model="employee.Salary" /></td>
                     <td>
-                        <button class="btn btn-info btn-sm" ng-click="save(employee.Id,employee.Name,employee.Position,employee.Office,employee.Age,employee.StartDate,employee.Salary)"><span class="glyphicon glyphicon-ok"></span></button>
-                        <button class="btn btn-danger btn-sm" ng-click="cancel(employee.Id)"><span class="glyphicon glyphicon-remove"></span></button>
+                        <input type="text" id="txtEditName_{{employee.Id}}" name="eName" ng-required="true" ng-maxlength="20" required class="form-control" ng-model="employee.Name" />
+                        <div role="alert"><span class="error" ng-show="tableForm.eName.$error.required">Field is required</span></div>
+                        <div role="alert"><span class="error" ng-show="tableForm.eName.$error.maxlength">Maximum length is 20 charaters</span></div>
+                    </td>
+                    <td>
+                        <input type="text" id="txtEditPosition_{{employee.Id}}" ng-required="true" name="ePosition" ng-maxlength="30" required class="form-control" ng-model="employee.Position" />
+                        <div role="alert"><span class="error" ng-show="tableForm.ePosition.$error.required">Field is required</span></div>
+                        <div role="alert"><span class="error" ng-show="tableForm.ePosition.$error.maxlength">Maximum length is  30 charaters</span></div>
+                    </td>
+                    <td>
+                        <input type="text" id="txtEditOffice_{{employee.Id}}" ng-required="true" name="eOffice" ng-maxlength="20" required class="form-control" ng-model="employee.Office" />
+                        <div role="alert"><span class="error" ng-show="tableForm.eOffice.$error.required">Field is required</span></div>
+                        <div role="alert"><span class="error" ng-show="tableForm.eOffice.$error.maxlength">Maximum length is  20 charaters</span></div>
+                    </td>
+                    <td>
+                        <input type="number" id="txtEditAge_{{employee.Id}}" ng-required="true" name="eAge" required class="form-control" ng-minlength="2" ng-maxlength="3" ng-model="employee.Age" />
+                        <div role="alert"><span class="error" ng-show="tableForm.eAge.$error.required">Field is required</span></div>
+                        <div role="alert"><span class="error" ng-show="tableForm.eAge.$error.minlength">Minimum length is 2</span></div>
+                        <div role="alert"><span class="error" ng-show="tableForm.eAge.$error.maxlength">Maximum length is 3</span></div>
+                    </td>
+                    <td>
+                        <input type="date" id="txtEditStartDate_{{employee.Id}}" ng-required="true"  required name="eStartDate" min="2005-01-01" max="2016-03-01" placeholder="yyyy-MM-dd" class="form-control" ng-model="employee.StartDate" />
+                        <div role="alert"><span class="error" ng-show="tableForm.eStartDate.$error.required">Field is required</span></div>
+                        <div role="alert"><span class="error" ng-show="tableForm.eStartDate.$error.date">Date format should be between 2005-01-01 to 2016-03-01!</span></div>
+                    </td>
+                    <td>
+                        <input type="number" id="txtEditSalary_{{employee.Id}}" ng-required="true"  name="eSalary" required class="form-control" ng-model="employee.Salary" />
+                        <div role="alert"><span class="error" ng-show="tableForm.eSalary.$error.required">Field is required</span></div>
+                    </td>
+                    <td>
+                        <button class="btn btn-info btn-sm"
+                                ng-disabled="tableForm.eName.$invalid || tableForm.ePosition.$invalid || tableForm.eOffice.$invalid ||
+                                tableForm.eAge.$invalid || tableForm.eStartDate.$invalid || tableForm.eSalary.$invalid"
+                                ng-click="save(employee.Id,employee.Name,employee.Position,employee.Office,employee.Age,employee.StartDate,employee.Salary)">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                        <button class="btn btn-danger btn-sm"
+                                ng-disabled="tableForm.eName.$invalid || tableForm.ePosition.$invalid || tableForm.eOffice.$invalid ||
+                                tableForm.eAge.$invalid || tableForm.eStartDate.$invalid || tableForm.eSalary.$invalid"
+                                ng-click="cancel(employee.Id)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
-    </div>
+    </form>
+</div>
 
 </body>
 </html>
