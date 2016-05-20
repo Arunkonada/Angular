@@ -1,27 +1,9 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-    <style type="text/css">
-        .error {
-            color: red;
-        }
-        .req {
-            color: red;
-        }
-    </style>
-    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
-    <script src="Scripts/jquery-1.9.1.js"></script>
-    <script src="Scripts/bootstrap.js"></script>
-    <script src="Scripts/angular.min.js"></script>
-    <script src="CrudOperationUsingStaticData/Scripts/1.js"></script>
-</head>
-<body ng-app="crudModule" ng-controller="crudController">
+﻿
+<div ng-controller="crudController">
 <br/>
-    <h2 style="font-weight: 700;margin-left: 388px;">Crud Operation Using Static Data</h2>
+    <h2 style="font-weight: 700;text-align:center;">Crud Operation Using Static Data</h2>
     <br />
-    <button style="margin-left: 1190px;width: 155px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+    <button style="float:right;margin:20px 5px 10px 0;width: 155px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
         Add
     </button>
     <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
@@ -38,7 +20,7 @@
 
                         <div class="form-group">
                             <label for="txtName">Name </label><span class="req">*</span>
-                            <input type="text" name="userName" id="txtName" ng-maxlength="20" required="" placeholder="Name" class="form-control" ng-model="Name" />
+                            <input type="text" name="userName" id="txtName" ng-maxlength="20" required="" placeholder="Name" class="form-control" ng-model="AddInfo.Name" />
                             <div class="error" ng-show="addForm.$submitted || addForm.userName.$touched">
                                 <div ng-show="addForm.userName.$error.required">Field is required!</div>
                                 <div ng-show="addForm.userName.$error.maxlength">Maximum length is 20 charaters</div>
@@ -46,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtPosition">Position </label><span class="req">*</span>
-                            <input type="text" id="txtPosition" name="Position" ng-maxlength="30" required="" placeholder="Position" class="form-control" ng-model="Position"  />
+                            <input type="text" id="txtPosition" name="Position" ng-maxlength="30" required="" placeholder="Position" class="form-control" ng-model="AddInfo.Position" />
                             <div class="error" ng-show="addForm.$submitted || addForm.Position.$touched">
                                 <div ng-show="addForm.Position.$error.required">Field is required!</div>
                                 <div ng-show="addForm.Position.$error.maxlength">Maximum length is 30 charaters!</div>
@@ -54,34 +36,34 @@
                         </div>
                         <div class="form-group">
                             <label for="txtOffice">Office </label><span class="req">*</span>
-                            <input type="text" id="txtOffice" name="Office" required ng-maxlength="20" placeholder="Office" class="form-control" ng-model="Office"  />
+                            <input type="text" id="txtOffice" name="Office" required ng-maxlength="20" placeholder="Office" class="form-control" ng-model="AddInfo.Office" />
                             <div class="error" ng-show="addForm.$submitted || addForm.Office.$touched">
                                 <div ng-show="addForm.Office.$error.required">Field is required!</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="txtAge">Age </label><span class="req">*</span>
-                            <input type="number" id="txtAge" name="Age" required placeholder="Age" class="form-control" ng-model="Age"  />
+                            <input type="number" id="txtAge" name="Age" required placeholder="Age" class="form-control" ng-model="AddInfo.Age" />
                             <div class="error" ng-show="addForm.$submitted || addForm.Age.$touched">
                                 <div ng-show="addForm.Age.$error.required">Field is required!</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="txtDateTime">Date </label><span class="req">*</span>
-                            <input type="date" id="txtDateTime" name="StartDate" required placeholder="Start Date" class="form-control" ng-model="StartDate"  />
+                            <input type="date" id="txtDateTime" name="StartDate" required placeholder="Start Date" class="form-control" ng-model="AddInfo.StartDate" />
                             <div class="error" ng-show="addForm.$submitted || addForm.StartDate.$touched">
                                 <div ng-show="addForm.StartDate.$error.required">Field is required!</div>
                             </div>
                         </div>
                      <div class="form-group">
                             <label for="txtSalary">Salary </label><span class="req">*</span>
-                            <input type="number" id="txtSalary" name="Salary" required placeholder="Salary" class="form-control" ng-model="Salary" ng-change="submitted=false"/>
+                         <input type="number" id="txtSalary" name="Salary" required placeholder="Salary" class="form-control" ng-model="AddInfo.Salary" ng-change="submitted=false" />
                             <div class="error" ng-show="addForm.$submitted || addForm.Salary.$touched">
                                 <div ng-show="addForm.Salary.$error.required">Field is required!</div>
                             </div>
                         </div>
                      <div class="form-group">
-                        <input type="checkbox" ng-model="addForm.agree" name="userAgree" required="" />
+                         <input type="checkbox" ng-model="AddInfo.Agree" name="userAgree" required="" />
                         I agree:
                         <input ng-show="addForm.agree" type="text" ng-model="addForm.agreeSign" required="" />
                         <br />
@@ -92,14 +74,14 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" ng-click="reset(form)" data-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-info" ng-click="Add()" value="Save changes"/>
+                        <input type="submit" ng-disabled="addForm.$invalid" class="btn btn-info" ng-click="Add()" value="Save changes" />
                     </div>
                   </div>
                 </form>
             </div>
         </div>
     </div>
-<div>
+    <div>
     <form name="tableForm">
         <table class="table table-responsive table-hover table-striped table-bordered">
             <thead class="">
@@ -177,5 +159,5 @@
     </form>
 </div>
 
-</body>
-</html>
+</div>
+

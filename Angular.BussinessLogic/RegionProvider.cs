@@ -10,22 +10,22 @@ namespace Angular.BussinessLogic
 {
     public class RegionProvider
     {
-        private readonly RegionUnitOfWork _regionUnitOfWork;
-        public RegionProvider(RegionUnitOfWork regionUnitofWork)
-        {
-            _regionUnitOfWork = regionUnitofWork;
-        }
-        public IEnumerable<RegionDto> GetAllRegion()
-        {
-            return _regionUnitOfWork.RegionRepository.GetAllRegion();
-        }
-        public RegionDto GetRegionById(int id)
-        {
-            return _regionUnitOfWork.RegionRepository.GetRegionById(id);
-        }
-        public void AddRegion(RegionDto regionDto)
-        {
-            _regionUnitOfWork.RegionRepository.AddRegion(regionDto);
-        }
+        //private readonly RegionUnitOfWork _regionUnitOfWork;
+        //public RegionProvider(RegionUnitOfWork regionUnitofWork)
+        //{
+        //    _regionUnitOfWork = regionUnitofWork;
+        //}
+        //public IEnumerable<SupplierDto> GetAllRegion()
+        //{
+        //    return _regionUnitOfWork.RegionRepository.GetAllRegion();
+        //}
+        //public SupplierDto GetRegionById(int id)
+        //{
+        //    return _regionUnitOfWork.RegionRepository.GetRegionById(id);
+        //}
+        //public void AddRegion(SupplierDto regionDto)
+        //{
+        //    _regionUnitOfWork.RegionRepository.AddRegion(regionDto);
+        //}
     }
 }

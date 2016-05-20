@@ -11,18 +11,18 @@ namespace Angular.UnitOfWork
 {
     public class RegionUnitOfWork:BaseUnitOfWork
     {
-        private RegionRepository _RegionRepository;
-        public RegionUnitOfWork(NORTHWNDEntities northWindDb)
-            : base(northWindDb)
+        private SupplierRepository _RegionRepository;
+        public RegionUnitOfWork(sampleEntities cartContext)
+            : base(cartContext)
         {
  
         }
-        public RegionRepository RegionRepository
+        public SupplierRepository RegionRepository
         {
             get {
                 if (_RegionRepository == null)
                 {
-                    _RegionRepository = new RegionRepository(Context);
+                    _RegionRepository = new SupplierRepository(Context);
                 }
                 return _RegionRepository;
             }

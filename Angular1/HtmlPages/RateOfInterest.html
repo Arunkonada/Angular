@@ -1,11 +1,5 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body ng-app="angular1" ng-controller="angController as angular" ng-init="Months=12;Years=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];">
+﻿
+<div ng-controller="angController as angular" ng-init="Months=12;Years=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];">
     <br />
     <h3 style="font-size: xx-large;margin-left: 261px;">Loan Calculator</h3>
     <hr />
@@ -32,18 +26,4 @@
             <p class="bg-primary">Total Amount : {{(amountWant * (1 + ((tenureInYears / 100) * (rateOfInterest * Months)))) | currency}}</p>
         </div>
     </form>
-    <script src="Scripts/angular.min.js"></script>
-    <script type="text/javascript">
-        angular.module('angular1', []).controller('angController', function () {
-            var d = new Date(Date.now());
-            this.startDate = d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear();
-            this.endDate = function (addValue) {
-                var added = d.getFullYear() + Number(addValue);
-                return d.getDate() + '/' + d.getMonth() + '/' + added;
-            }
-        });
-    </script>
-
-</body>
-
-</html>
+</div>

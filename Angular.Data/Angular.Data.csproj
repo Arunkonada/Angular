@@ -65,79 +65,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CartDb.Context.cs">
+    <Compile Include="CartDatabase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CartDb.Context.tt</DependentUpon>
+      <DependentUpon>CartDatabase.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CartDb.cs">
+    <Compile Include="CartDatabase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CartDb.tt</DependentUpon>
+      <DependentUpon>CartDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="CartDb.Designer.cs">
+    <Compile Include="CartDatabase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CartDb.edmx</DependentUpon>
+      <DependentUpon>CartDatabase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Category.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Customer.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerDemographic.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Employee.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Order.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Order_Detail.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
+      <DependentUpon>CartDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
+      <DependentUpon>CartDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Region.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Shipper.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Supplier.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
+      <DependentUpon>CartDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Territory.cs">
-      <DependentUpon>CartDb.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="CartDb.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CartDb.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="CartDb.Context.tt">
+    <EntityDeploy Include="CartDatabase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CartDatabase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CartDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CartDb.edmx</DependentUpon>
-      <LastGenOutput>CartDb.Context.cs</LastGenOutput>
+      <DependentUpon>CartDatabase.edmx</DependentUpon>
+      <LastGenOutput>CartDatabase.Context.cs</LastGenOutput>
     </None>
-    <None Include="CartDb.edmx.diagram">
-      <DependentUpon>CartDb.edmx</DependentUpon>
+    <None Include="CartDatabase.edmx.diagram">
+      <DependentUpon>CartDatabase.edmx</DependentUpon>
     </None>
-    <None Include="CartDb.tt">
+    <None Include="CartDatabase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CartDb.edmx</DependentUpon>
-      <LastGenOutput>CartDb.cs</LastGenOutput>
+      <DependentUpon>CartDatabase.edmx</DependentUpon>
+      <LastGenOutput>CartDatabase.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

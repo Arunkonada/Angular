@@ -6,9 +6,9 @@ namespace Angular.UnitOfWork.Common
 	public class BaseUnitOfWork : IDisposable, IBaseUnitOfWork
 	{
 		private bool _disposed;
-		protected NORTHWNDEntities Context;
+        protected sampleEntities Context;
 
-        public BaseUnitOfWork(NORTHWNDEntities context)
+        public BaseUnitOfWork(sampleEntities context)
 		{
 			Context = context;
 		}

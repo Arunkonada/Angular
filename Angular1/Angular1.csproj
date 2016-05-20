@@ -14,7 +14,7 @@
     <RootNamespace>Angular1</RootNamespace>
     <AssemblyName>Angular1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -61,10 +61,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="CrudOperationUsingStaticData.html" />
-    <Content Include="CrudOperationUsingStaticData\Scripts\1.js" />
+    <Content Include="Default.html" />
+    <Content Include="HtmlPages\CrudOperationUsingStaticData.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="OldMessagePad.html" />
+    <Content Include="HtmlPages\OldMessagePad.html" />
+    <Content Include="LocalScripts\main.js" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
@@ -76,9 +77,12 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -94,18 +98,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HtmlPage1.html" />
+    <Content Include="HtmlPages\HtmlPage1.html" />
     <Content Include="a.mp4" />
     <Content Include="b.mp4" />
     <Content Include="c.mp4" />
     <Content Include="d.mp4" />
-    <Content Include="RateOfInterest.html" />
+    <Content Include="HtmlPages\RateOfInterest.html" />
     <Content Include="Web.config" />
     <Content Include="Wildlife.wmv" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -121,7 +126,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>5044</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5044/</IISUrl>
+          <IISUrl>http://localhost/Angular</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

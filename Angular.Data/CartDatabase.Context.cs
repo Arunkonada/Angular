@@ -13,10 +13,10 @@ namespace Angular.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NORTHWNDEntities : DbContext
+    public partial class sampleEntities : DbContext
     {
-        public NORTHWNDEntities()
-            : base("name=NORTHWNDEntities")
+        public sampleEntities()
+            : base("name=sampleEntities")
         {
         }
     
@@ -26,16 +26,7 @@ namespace Angular.Data
         }
     
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<Order_Detail> Order_Details { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Region> Regions { get; set; }
-        public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Territory> Territories { get; set; }
     }
 }

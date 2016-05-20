@@ -1,0 +1,54 @@
+﻿<div ng-controller="dialController">
+    <br />
+    <h2 style="margin-left: 400px;">Old Cell Phones Message Pad</h2>
+    <br />
+    <input id="msg" readonly value="{{dial}}" class="form-control"  />
+    <br />
+    <br />
+    <br />
+    <div class="form-inline">
+        <div style="margin-left: 447px;margin-top: -89px;" class="btn-group" role="group" aria-label="...">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainLogic('one')">1(.,?)</button>
+            </div>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainLogic('two')">2(ABC)</button>
+            </div>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainLogic('three')">3(DEF)</button>
+            </div>
+        </div>
+        <br />
+        <div style="margin-left: 442px;margin-top: -34px;" class="btn-group" role="group" aria-label="...">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainLogic('four')">4(GHI)</button>
+            </div>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainLogic('five')">5(JKL)</button>
+            </div>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainLogic('six')">6(MNO)</button>
+            </div>
+        </div>
+        <br />
+        <div style="margin-left: 427px;margin-top: -3px;" class="btn-group" role="group" aria-label="...">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainLogic('seven')">7(PQRS)</button>
+            </div>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainLogic('eigth')">8(TUV)</button>
+            </div>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainLogic('nine')">9(WXYZ)</button>
+            </div>
+        </div>
+        <div style="margin-left: 470px;margin-top: 0px;" class="btn-group" role="group" aria-label="...">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="space()">Space</button>
+            </div>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="backSpace()">Back-Space</button>
+            </div>
+        </div>
+    </div>
+</div>
