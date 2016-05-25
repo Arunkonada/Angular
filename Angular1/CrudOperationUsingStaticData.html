@@ -128,33 +128,33 @@
                 </tr>
                 <tr id="Edit_{{employee.Id}}" ng-show="employee.InlineEdit">
                     <td>
-                        <input type="text" id="txtEditName_{{employee.Id}}" name="eName" ng-required="true" ng-maxlength="20" required class="form-control" ng-model="employee.Name" />
+                        <input type="text" id="txtEditName_{{employee.Id}}" name="eName" ng-maxlength="20" required class="form-control" ng-model="employee.Name" />
                         <div role="alert"><span class="error" ng-show="tableForm.eName.$error.required">Field is required</span></div>
                         <div role="alert"><span class="error" ng-show="tableForm.eName.$error.maxlength">Maximum length is 20 charaters</span></div>
                     </td>
                     <td>
-                        <input type="text" id="txtEditPosition_{{employee.Id}}" ng-required="true" name="ePosition" ng-maxlength="30" required class="form-control" ng-model="employee.Position" />
+                        <input type="text" id="txtEditPosition_{{employee.Id}}"  name="ePosition" ng-maxlength="30" required class="form-control" ng-model="employee.Position" />
                         <div role="alert"><span class="error" ng-show="tableForm.ePosition.$error.required">Field is required</span></div>
                         <div role="alert"><span class="error" ng-show="tableForm.ePosition.$error.maxlength">Maximum length is  30 charaters</span></div>
                     </td>
                     <td>
-                        <input type="text" id="txtEditOffice_{{employee.Id}}" ng-required="true" name="eOffice" ng-maxlength="20" required class="form-control" ng-model="employee.Office" />
+                        <input type="text" id="txtEditOffice_{{employee.Id}}"  name="eOffice" ng-maxlength="20" required class="form-control" ng-model="employee.Office" />
                         <div role="alert"><span class="error" ng-show="tableForm.eOffice.$error.required">Field is required</span></div>
                         <div role="alert"><span class="error" ng-show="tableForm.eOffice.$error.maxlength">Maximum length is  20 charaters</span></div>
                     </td>
                     <td>
-                        <input type="number" id="txtEditAge_{{employee.Id}}" ng-required="true" name="eAge" required class="form-control" ng-minlength="2" ng-maxlength="3" ng-model="employee.Age" />
+                        <input type="number" id="txtEditAge_{{employee.Id}}"  name="eAge" required class="form-control" ng-minlength="2" ng-maxlength="3" ng-model="employee.Age" />
                         <div role="alert"><span class="error" ng-show="tableForm.eAge.$error.required">Field is required</span></div>
                         <div role="alert"><span class="error" ng-show="tableForm.eAge.$error.minlength">Minimum length is 2</span></div>
                         <div role="alert"><span class="error" ng-show="tableForm.eAge.$error.maxlength">Maximum length is 3</span></div>
                     </td>
                     <td>
-                        <input type="date" id="txtEditStartDate_{{employee.Id}}" ng-required="true"  required name="eStartDate" min="2005-01-01" max="2016-03-01" placeholder="yyyy-MM-dd" class="form-control" ng-model="employee.StartDate" />
+                        <input type="date" id="txtEditStartDate_{{employee.Id}}"  required name="eStartDate" min="2005-01-01" max="2016-03-01" placeholder="yyyy-MM-dd" class="form-control" ng-model="employee.StartDate" />
                         <div role="alert"><span class="error" ng-show="tableForm.eStartDate.$error.required">Field is required</span></div>
                         <div role="alert"><span class="error" ng-show="tableForm.eStartDate.$error.date">Date format should be between 2005-01-01 to 2016-03-01!</span></div>
                     </td>
                     <td>
-                        <input type="number" id="txtEditSalary_{{employee.Id}}" ng-required="true"  name="eSalary" required class="form-control" ng-model="employee.Salary" />
+                        <input type="number" id="txtEditSalary_{{employee.Id}}"   name="eSalary" required class="form-control" ng-model="employee.Salary" />
                         <div role="alert"><span class="error" ng-show="tableForm.eSalary.$error.required">Field is required</span></div>
                     </td>
                     <td>
