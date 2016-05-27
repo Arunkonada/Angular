@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Angular.UnitOfWork.Common;
-using Angular.Data;
+﻿using Angular.Data;
 using Angular.Repository;
+using Angular.UnitOfWork.Common;
 
 namespace Angular.UnitOfWork
 {
-    public class RegionUnitOfWork:BaseUnitOfWork
+    public class RegionUnitOfWork : SampleBaseUnitOfWork
     {
         private SupplierRepository _RegionRepository;
+
         public RegionUnitOfWork(sampleEntities cartContext)
             : base(cartContext)
         {
- 
         }
+
         public SupplierRepository RegionRepository
         {
-            get {
+            get
+            {
                 if (_RegionRepository == null)
                 {
                     _RegionRepository = new SupplierRepository(Context);
@@ -27,6 +24,5 @@ namespace Angular.UnitOfWork
                 return _RegionRepository;
             }
         }
-
     }
 }

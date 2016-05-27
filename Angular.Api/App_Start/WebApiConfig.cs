@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
+using System.Web.Http.Cors;
+using Angular.Api.Filters;
+using Angular.Api.Handlers;
 
 namespace Angular.Api
 {
@@ -13,12 +13,12 @@ namespace Angular.Api
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+            config.Filters.Add(new AuthorizeRequestAttribute());
+            config.Filters.Add(new ExceptionHandlingAttribute());
+            config.Routes.MapHttpRoute("DefaultApi", "{controller}/{id}", new { id = RouteParameter.Optional });
+            config.MessageHandlers.Add(new WrappingHandler());
         }
     }
 }

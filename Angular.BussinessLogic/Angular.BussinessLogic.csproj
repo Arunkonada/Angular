@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DealersProvider.cs" />
     <Compile Include="RegionProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,6 +60,10 @@
     <ProjectReference Include="..\Angular.Dtos\Angular.Dtos.csproj">
       <Project>{2914db9e-4238-4fbe-9e3d-a867a821f477}</Project>
       <Name>Angular.Dtos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Angular.Models\Angular.Models.csproj">
+      <Project>{f936dfde-364d-4b7e-b14e-1a4e0b1eb250}</Project>
+      <Name>Angular.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Angular.Repository\Angular.Repository.csproj">
       <Project>{37ec9232-484a-429d-b710-23f90fb79eb1}</Project>

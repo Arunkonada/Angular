@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryDto.cs" />
+    <Compile Include="Common\ResponseRevenueDto.cs" />
+    <Compile Include="Common\RevenueDto.cs" />
+    <Compile Include="MasterData\DealerDto.cs" />
     <Compile Include="ProductDto.cs" />
     <Compile Include="SupplierDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

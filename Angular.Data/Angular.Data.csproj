@@ -83,10 +83,28 @@
     <Compile Include="Category.cs">
       <DependentUpon>CartDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetDealersEntities.cs">
+      <DependentUpon>SalesCRMDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>CartDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalesCRMDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesCRMDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesCRMDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesCRMDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesCRMDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesCRMDb.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Supplier.cs">
       <DependentUpon>CartDatabase.tt</DependentUpon>
     </Compile>
@@ -111,6 +129,23 @@
       <LastGenOutput>CartDatabase.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="SalesCRMDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SalesCRMDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SalesCRMDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SalesCRMDb.edmx</DependentUpon>
+      <LastGenOutput>SalesCRMDb.Context.cs</LastGenOutput>
+    </None>
+    <None Include="SalesCRMDb.edmx.diagram">
+      <DependentUpon>SalesCRMDb.edmx</DependentUpon>
+    </None>
+    <None Include="SalesCRMDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SalesCRMDb.edmx</DependentUpon>
+      <LastGenOutput>SalesCRMDb.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
